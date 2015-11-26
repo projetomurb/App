@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>MURB POS LOGIN</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+
+        <style>
+            @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          
+            @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+            @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   
+            @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/inicial_main.less.css" class="main-less">
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <script src="js/app.js"></script>
+        <script src="js/init-app.js"></script>
+        <script src="xdk/init-dev.js"></script>
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="marginal/marginal-position.min.js"></script>
+        <script type="application/javascript" src="sidebar/js/hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+    </head>
+
+    <body>
+        <div class="upage" id="mainpage">
+            <div class="upage-outer">
+                <div class="uib-header header-bg container-group inner-element uib_w_1" data-uib="layout/header" data-ver="0">
+                    <h2></h2>
+                    <div class="widget-container wrapping-col single-centered"></div>
+                    <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+                <div class="escanear">
+                    <a href="escanear.html" onclick="scanNow();">
+                        <span class="glyphicon glyphicon-camera"></span> Escanear
+                    </a>
+                </div>
+                <div class="upage-content ac0 content-area vertical-col left" id="page_37_8"></div>
+                <div class="inner-element uib_w_2 uib_sidebar leftbar bar-bg thumb-bg bar-gutter" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'push', 'v':120, 'side':'left', 'dur':200, 'io':true}">
+                    <div class="menu">
+          <div class="sidebar-content content-area vertical-col">
+              <br>
+                        <br>
+                        <a href="inicial.html">
+                            <span class="glyphicon glyphicon-home"></span> Início
+                        </a>
+                        <br>
+                        <br>
+                        <a href="ranking.html">
+                            <span class="glyphicon glyphicon-signal"></span> Ranking
+                        </a>
+                        <br>
+                        <br>
+                        <a href="museus.html">
+                            <span class="glyphicon glyphicon-picture"></span> Museus
+                        </a>
+                        <br>
+                        <br>
+                        <a href="hologramas.html">
+                            <span class="glyphicon glyphicon-map-marker"></span> Hologramas
+                        </a>
+                        <br>
+                        <br>
+                        <a href="promocoes.html">
+                            <span class="glyphicon glyphicon-star"></span> Promoções
+                        </a>
+                        <br>
+                        <br>
+                        <a href="escanear.html">
+                            <span class="glyphicon glyphicon-camera"></span> Escanear
+                        </a>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <a href="index.html">
+                            <span class="glyphicon glyphicon-remove"></span> Sair
+                        </a>
+          </div>
+         </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function scanNow()
+                    {
+                        //this function launches the QR Code scanner.
+                        intel.xdk.device.scanBarcode();
+                    }
+
+                    //this event is fired when scanning is completed
+                    document.addEventListener("intel.xdk.device.barcode.scan",function(evt){
+                        if (evt.success == true) {
+                            //successful scan
+
+                            alert(evt.codedata);
+                        }
+                        else
+                        {
+                            //failed scan
+                            alert("Please try again");
+                        }
+                    },false);
+        </script>
+    </body>
+
+</html>
